@@ -12,21 +12,14 @@ class Camera
 
 public:
 
-	Camera()
-	{
-		//Check that we didn't already declare a camera
-		if(_instance != nullptr)
-		{
-			_viewBox = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
-			_instance = this;
-		}
-	}
+	Camera(TransformComponent* target);
 
-	void Update(float dt);
+	void update();
 
 	SDL_Rect GetViewBox() {return _viewBox; }
 	Vector GetPosition() {return _position; }
 	Camera* GetInstance() {return _instance; }
+	TransformComponent* GetTarget() {return _target; }
 	void SetTarget(TransformComponent* target) {_target = target; }
 
 private:

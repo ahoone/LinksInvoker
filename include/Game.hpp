@@ -9,8 +9,8 @@
 #define SCREEN_WIDTH 1024
 #define SCREEN_HEIGHT 768
 
-#define CAMERA_WIDTH 1024
-#define CAMERA_HEIGHT 768
+#define CAMERA_WIDTH 768 //512 //1024
+#define CAMERA_HEIGHT 576 //384 //768
 
 class ColliderComponent;
 class Camera;

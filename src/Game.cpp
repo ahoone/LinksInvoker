@@ -77,15 +77,14 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		map = new Map();
 
 		//Init the player
-		player.addComponent<TransformComponent>(256, 384, 32, 32, 2);
+		player.addComponent<TransformComponent>(CAMERA_WIDTH/2, CAMERA_HEIGHT/2, 32, 32, 2);
 		player.addComponent<MultiSpriteComponent>("../assets/player.bmp");
 		player.addComponent<Keyboard>(SDLK_z, SDLK_s, SDLK_q, SDLK_d);
 		player.addComponent<ColliderComponent>("player");
 		player.addGroup(groupPlayers);
 
 		//Init the camera
-		Game::camera = new Camera();
-		Game::camera->SetTarget(&player.getComponent<TransformComponent>());
+		Game::camera = new Camera(&player.getComponent<TransformComponent>());
 
 		std::cout << "Game::init ok" << std::endl;
 	}
@@ -112,15 +111,7 @@ void Game::update()
 {
 	manager.actualize();
 	manager.update();
-
-	// Vector playerVelocity = player.getComponent<TransformComponent>().velocity;
-	// int playerSpeed = player.getComponent<TransformComponent>().speed;
-
-	// for(auto& t : tiles)
-	// {
-	// 	t->getComponent<TileComponent>().tile.x = -(playerVelocity.x() * playerSpeed);
-	// 	t->getComponent<TileComponent>().tile.y = -(playerVelocity.y() * playerSpeed);
-	// }
+	Game::camera->update();
 }
 
 void Game::render()

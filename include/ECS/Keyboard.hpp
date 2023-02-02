@@ -61,6 +61,7 @@ public:
 				transform->velocity.x(1);
 				multiSprite->Play("Walk");
 			}
+
 		}
 
 		if(Game::event.type == SDL_KEYUP)
