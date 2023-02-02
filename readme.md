@@ -1,7 +1,8 @@
-# WorldCup
-## Moteur de Jeu 2D et Implémentation mini-jeu
+# LinksInvoker
+## Jeu en développement
 
-Le moteur de jeu développé contient notamment un système de gestion des Component, efficace et facilement adaptable.
+Basé sur le moteur de jeu développé dans mon repo `WorldCup`.
+Codé à l'aide du tutoriel de la chaîne Youtube `Let's Make Games`.
 
 Toutes les textures du mini-jeu sont en 32x32 et on été designées à l'aide de GIMP.
 
