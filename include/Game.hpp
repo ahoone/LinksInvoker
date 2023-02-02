@@ -6,7 +6,14 @@
 #include <vector>
 #include <string>
 
+#define SCREEN_WIDTH 1024
+#define SCREEN_HEIGHT 768
+
+#define CAMERA_WIDTH 1024
+#define CAMERA_HEIGHT 768
+
 class ColliderComponent;
+class Camera;
 
 class Game
 {
@@ -40,7 +47,9 @@ public:
 	//******************************
 
 	static void AddTile(int id, int x, int y);
+
 	static SDL_Renderer* renderer;
+	static Camera* camera;
 	static SDL_Event event;
 	static std::vector<ColliderComponent*> colliders;
 
@@ -48,5 +57,4 @@ private:
 	int _count;
 	bool _running;
 	SDL_Window* window;
-
 };

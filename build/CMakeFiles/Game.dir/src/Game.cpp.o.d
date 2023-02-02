@@ -371,9 +371,9 @@ CMakeFiles/Game.dir/src/Game.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/stack \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/deque \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/iomanip \
+  /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/Components.hpp \
   /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/Entity.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/array \
-  /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/Components.hpp \
   /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/Transform.hpp \
   /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/../Vector.hpp \
   /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/Sprite.hpp \
@@ -389,4 +389,5 @@ CMakeFiles/Game.dir/src/Game.cpp.o: \
   /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/Collider.hpp \
   /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/Tile.hpp \
   /Users/noahbensoussen/Desktop/LinksInvoker/include/Vector.hpp \
-  /Users/noahbensoussen/Desktop/LinksInvoker/include/Collision.hpp
+  /Users/noahbensoussen/Desktop/LinksInvoker/include/Collision.hpp \
+  /Users/noahbensoussen/Desktop/LinksInvoker/include/Camera.hpp

@@ -19,10 +19,10 @@ public:
 		_animated = true;
 
 		Animation idle = Animation(0, 2, 100);
-		Animation walk = Animation(1, 2, 100);
+		Animation walk = Animation(1, 2, 200);
 
-		//_animations.emplace("Idle", idle);
-		//_animations.emplace("Walk", walk);
+		_animations.emplace("Idle", idle);
+		_animations.emplace("Walk", walk);
 
 		Play("Idle");
 	}
@@ -34,10 +34,10 @@ public:
 			_srcRect.x = _srcRect.w * static_cast<int>((SDL_GetTicks() / _speed) % _frames);
 		}
 
-		//_srcRect.y = _animIndex * _position->height;
+		_srcRect.y = _animIndex * _position->height;
 
-		//_destRect.x = static_cast<int>(_position->x());
-		//_destRect.y = static_cast<int>(_position->y());
+		_destRect.x = static_cast<int>(_position->x());
+		_destRect.y = static_cast<int>(_position->y());
 
 		_destRect.w = _position->width * _position->scale;
 		_destRect.h = _position->height * _position->scale;
@@ -47,7 +47,7 @@ public:
 	{
 		_frames = _animations[animName].frames;
 		_animIndex = _animations[animName].index;
-		_speed = _animations[animName].index;
+		_speed = _animations[animName].speed;
 	}
 
 private:

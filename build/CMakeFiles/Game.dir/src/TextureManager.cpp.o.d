@@ -364,4 +364,10 @@ CMakeFiles/Game.dir/src/TextureManager.cpp.o: \
   /usr/local/include/SDL2/SDL_misc.h /usr/local/include/SDL2/SDL_image.h \
   /Users/noahbensoussen/Desktop/LinksInvoker/include/Game.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/vector \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__split_buffer
+  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/__split_buffer \
+  /Users/noahbensoussen/Desktop/LinksInvoker/include/Camera.hpp \
+  /Users/noahbensoussen/Desktop/LinksInvoker/include/Vector.hpp \
+  /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/Transform.hpp \
+  /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/Entity.hpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/usr/include/c++/v1/array \
+  /Users/noahbensoussen/Desktop/LinksInvoker/include/ECS/../Vector.hpp

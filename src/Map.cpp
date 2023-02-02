@@ -4,12 +4,12 @@
 
 Map::Map()
 {
-	LoadMap("../assets/defaultMap.txt", 32, 24);
+	LoadMap("../assets/defaultMap.txt", 36, 36);
 }
 
 Map::Map(std::string path)
 {
-	LoadMap(path, 32, 24);
+	LoadMap(path, 36, 36);
 }
 
 Map::~Map()
@@ -23,6 +23,7 @@ void Map::LoadMap(std::string path, int sizeX, int sizeY)
 	std::fstream mapFile;
 	mapFile.open(path);
 
+	//Size of the map.txt must be equal to SizeX columns and SizeY lines
 	for(int y=0; y<sizeY; y++)
 	{
 		for(int x=0; x<sizeX; x++)

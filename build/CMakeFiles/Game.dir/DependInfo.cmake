@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/noahbensoussen/Desktop/LinksInvoker/apps/main.cpp" "CMakeFiles/Game.dir/apps/main.cpp.o" "gcc" "CMakeFiles/Game.dir/apps/main.cpp.o.d"
+  "/Users/noahbensoussen/Desktop/LinksInvoker/src/Camera.cpp" "CMakeFiles/Game.dir/src/Camera.cpp.o" "gcc" "CMakeFiles/Game.dir/src/Camera.cpp.o.d"
   "/Users/noahbensoussen/Desktop/LinksInvoker/src/Collision.cpp" "CMakeFiles/Game.dir/src/Collision.cpp.o" "gcc" "CMakeFiles/Game.dir/src/Collision.cpp.o.d"
   "/Users/noahbensoussen/Desktop/LinksInvoker/src/Game.cpp" "CMakeFiles/Game.dir/src/Game.cpp.o" "gcc" "CMakeFiles/Game.dir/src/Game.cpp.o.d"
   "/Users/noahbensoussen/Desktop/LinksInvoker/src/Map.cpp" "CMakeFiles/Game.dir/src/Map.cpp.o" "gcc" "CMakeFiles/Game.dir/src/Map.cpp.o.d"

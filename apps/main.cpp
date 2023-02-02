@@ -4,7 +4,6 @@
 
 int main(int argc, char const *argv[])
 {
-	long int turn = 0;
 
 	//Réglage FPS
 	const int FPS = 60;
@@ -17,14 +16,13 @@ int main(int argc, char const *argv[])
 
 	game = new Game();
 
-	game->init("WorldCup", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1024, 768, false);
+	game->init("WorldCup", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, false);
 
 	//Boucle de jeu
-	while(game->running()) {
+	while(game->running())
+	{
 
 		frameStart = SDL_GetTicks();
-
-		std::cout << turn << std::endl;
 
 		game->effect();
 		game->update();
@@ -34,8 +32,6 @@ int main(int argc, char const *argv[])
 
 		if(frameDelay > frameTime)
 			SDL_Delay(frameDelay - frameTime);
-
-		turn++;
 
 	}
 

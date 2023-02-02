@@ -1,16 +1,10 @@
 #include "Game.hpp"
 #include "TextureManager.hpp"
 #include "Map.hpp"
-
-#include "ECS/Entity.hpp"
 #include "ECS/Components.hpp"
-#include "ECS/Sprite.hpp"
-#include "ECS/Transform.hpp"
-#include "ECS/Collider.hpp"
-#include "ECS/MultiSprite.hpp"
-
 #include "Vector.hpp"
 #include "Collision.hpp"
+#include "Camera.hpp"
 
 //====================================
 //=== DÉCLARATION COMPOSANTES JEUX ===
@@ -19,6 +13,7 @@
 Map* map;
 
 SDL_Renderer* Game::renderer = nullptr;
+Camera* Game::camera = nullptr;
 SDL_Event Game::event;
 
 std::vector<ColliderComponent*> Game::colliders;
@@ -42,7 +37,9 @@ Game::~Game()
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
 {
-	int flags = 0;
+	Uint32 flags = 0;
+
+	//flags for window
 	if(fullscreen)
 		flags = SDL_WINDOW_FULLSCREEN;
 
@@ -61,7 +58,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		else
 			std::cout << "Window Created" << std::endl;
 
-		renderer = SDL_CreateRenderer(window, -1, 0);
+		//flags for renderer optimization
+		flags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
+
+		renderer = SDL_CreateRenderer(window, -1, flags);
 		if(!renderer)
 			std::cout << "SDL_CreateRenderer Error" << std::endl;
 		else
@@ -73,14 +73,19 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		_running = true;
 		_count = 0;
 
-		//Load the default map.
+		//Load the default map
 		map = new Map();
 
+		//Init the player
 		player.addComponent<TransformComponent>(256, 384, 32, 32, 2);
 		player.addComponent<MultiSpriteComponent>("../assets/player.bmp");
 		player.addComponent<Keyboard>(SDLK_z, SDLK_s, SDLK_q, SDLK_d);
 		player.addComponent<ColliderComponent>("player");
 		player.addGroup(groupPlayers);
+
+		//Init the camera
+		Game::camera = new Camera();
+		Game::camera->SetTarget(&player.getComponent<TransformComponent>());
 
 		std::cout << "Game::init ok" << std::endl;
 	}
@@ -108,14 +113,14 @@ void Game::update()
 	manager.actualize();
 	manager.update();
 
-	Vector playerVelocity = player.getComponent<TransformComponent>().velocity;
-	int playerSpeed = player.getComponent<TransformComponent>().speed;
+	// Vector playerVelocity = player.getComponent<TransformComponent>().velocity;
+	// int playerSpeed = player.getComponent<TransformComponent>().speed;
 
-	for(auto& t : tiles)
-	{
-		t->getComponent<TileComponent>().tile.x = -(playerVelocity.x() * playerSpeed);
-		t->getComponent<TileComponent>().tile.y = -(playerVelocity.y() * playerSpeed);
-	}
+	// for(auto& t : tiles)
+	// {
+	// 	t->getComponent<TileComponent>().tile.x = -(playerVelocity.x() * playerSpeed);
+	// 	t->getComponent<TileComponent>().tile.y = -(playerVelocity.y() * playerSpeed);
+	// }
 }
 
 void Game::render()
