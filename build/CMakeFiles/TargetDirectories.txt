@@ -1,3 +1,0 @@
-/Users/noahbensoussen/Desktop/LinksInvoker/build/CMakeFiles/Game.dir
-/Users/noahbensoussen/Desktop/LinksInvoker/build/CMakeFiles/edit_cache.dir
-/Users/noahbensoussen/Desktop/LinksInvoker/build/CMakeFiles/rebuild_cache.dir
