@@ -15,5 +15,4 @@ struct Animation
 		speed = s;
 	}
 
-
 };

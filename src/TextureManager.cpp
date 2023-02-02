@@ -18,7 +18,6 @@ SDL_Texture* TextureManager::LoadTexture(const char* filename)
 
 void TextureManager::Draw(SDL_Texture* texture, SDL_Rect src, SDL_Rect dest)
 {
-	//Vector cam = Game::camera->GetTarget()->position;
 	Vector cam = Game::camera->GetPosition();
 	SDL_Rect camRect;
 

@@ -26,16 +26,18 @@ void Camera::update()
 
 		//Check that the camera is still on the renderer
 
-		// if(_viewBox.x < 0)
-		// 	_viewBox.x = 0;
+		if(_viewBox.x < 0)
+			_viewBox.x = 0;
 
-		// if(_viewBox.y < 0)
-		// 	_viewBox.y = 0;
+		if(_viewBox.y < 0)
+			_viewBox.y = 0;
 
-		// if(_viewBox.x + _viewBox.w > SCREEN_WIDTH)
+		//Les conditions sur le coin inférieur droit de la map sont mals définies
+
+		// if(_viewBox.x + _viewBox.w < SCREEN_WIDTH)
 		// 	_viewBox.x = SCREEN_WIDTH - _viewBox.w;
 
-		// if(_viewBox.y + _viewBox.h > SCREEN_HEIGHT)
+		// if(_viewBox.y + _viewBox.h < SCREEN_HEIGHT)
 		// 	_viewBox.y = SCREEN_HEIGHT - _viewBox.h;
 
 		_position = Vector(_viewBox.x, _viewBox.y);
