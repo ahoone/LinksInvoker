@@ -62,6 +62,13 @@ public:
 				multiSprite->Play("Walk");
 			}
 
+			if(Game::event.key.keysym.sym == SDLK_SPACE)
+			{
+				Game::assets->CreateProjectile(Vector(100,100), 400, 2, Vector(1, 0), "ball");
+				count++;
+				std::cout << count << std::endl;
+			}
+
 		}
 
 		if(Game::event.type == SDL_KEYUP)
@@ -99,5 +106,7 @@ private:
 	SDL_Keycode _down; 
 	SDL_Keycode _left; 
 	SDL_Keycode _right;
+
+	int count;
 
 };

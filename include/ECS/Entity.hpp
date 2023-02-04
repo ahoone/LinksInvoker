@@ -39,8 +39,8 @@ inline ComponentID getComponentTypeID() noexcept
 	return typeID;
 }
 
-constexpr std::size_t maxComponents = 32;
-constexpr std::size_t maxGroups = 32;
+constexpr std::size_t maxComponents = 64;
+constexpr std::size_t maxGroups = 64;
 
 using ComponentBitSet = std::bitset<maxComponents>;
 using GroupBitSet = std::bitset<maxGroups>;
@@ -53,8 +53,6 @@ class Component
 public:
 	Entity* entity;
 
-	//Fonctions virtuelles car
-	//redéfinies par chaque classe fille
 	virtual void init() {}
 	virtual void update() {}
 	virtual void draw() {}

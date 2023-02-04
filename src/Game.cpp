@@ -92,7 +92,7 @@ void Game::init(const char* title, int xpos, int ypos, bool fullscreen)
 		player.addGroup(Game::groupPlayers);
 
 		//Init the camera
-		Game::camera = new Camera(&player.getComponent<TransformComponent>());
+		camera = new Camera(&player.getComponent<TransformComponent>());
 
 		std::cout << "Game::init ok" << std::endl;
 	}
