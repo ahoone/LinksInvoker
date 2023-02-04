@@ -1,7 +1,8 @@
 [ ] Faire les delete de tout ce qui a été alloué :
-	-> Component dans ECS/entity
-	-> Entity dans manager dans ECS/entity
-	-> commandes en-tête Game.cpp
+	[ ] Component dans ECS/entity
+	[x] Entity dans manager dans ECS/entity
+	[ ] Commandes en-tête Game.cpp
+-> L'utilisation de unique_ptr rend la désallocation automatique	
 [ ] Faire des tests unaires pour vérifier que l'espace mémoire est bien vidé
 
 [ ] Modifier le mode de déplacement (combinaison de touches) en utilisant un automate/chaîne markov
