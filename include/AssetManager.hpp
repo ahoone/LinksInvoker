@@ -7,11 +7,6 @@
 #include "Vector.hpp"
 #include "ECS/Entity.hpp"
 
-
-// #include "ECS/Components.hpp"
-// #include "ECS/Projectile.hpp"
-// #include "Game.hpp"
-
 class AssetManager
 {
 
@@ -24,7 +19,7 @@ public:
 	//*** CREATE PROJECTILE ***
 	//*************************
 
-	//void CreateProjectile(Vector pos, int range, int speed, std::string id);
+	void CreateProjectile(Vector pos, int range, int speed, Vector velocity, std::string id);
 
 	//**************************
 	//*** TEXTURE MANAGEMENT ***

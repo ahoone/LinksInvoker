@@ -23,11 +23,10 @@ std::vector<ColliderComponent*> Game::colliders;
 
 auto& player(manager.addEntity());
 
-enum groupLabels : std::size_t
-{
-	groupMap,
-	groupPlayers
-};
+auto& tiles(manager.getGroup(Game::groupMap));
+auto& players(manager.getGroup(Game::groupPlayers));
+auto& collider(manager.getGroup(Game::groupCollider));
+auto& projectile(manager.getGroup(Game::groupProjectile));
 
 //====================================
 
@@ -80,6 +79,7 @@ void Game::init(const char* title, int xpos, int ypos, bool fullscreen)
 		assets->AddTexture("dirt", "../assets/dirt.bmp");
 		assets->AddTexture("grass", "../assets/grass.bmp");
 		assets->AddTexture("player", "../assets/player.bmp");
+		assets->AddTexture("ball", "../assets/ball.bmp");
 
 		//Load the default map
 		map = new Map();
@@ -89,7 +89,7 @@ void Game::init(const char* title, int xpos, int ypos, bool fullscreen)
 		player.addComponent<MultiSpriteComponent>("player");
 		player.addComponent<Keyboard>(SDLK_z, SDLK_s, SDLK_q, SDLK_d);
 		player.addComponent<ColliderComponent>("player");
-		player.addGroup(groupPlayers);
+		player.addGroup(Game::groupPlayers);
 
 		//Init the camera
 		Game::camera = new Camera(&player.getComponent<TransformComponent>());
@@ -112,9 +112,6 @@ void Game::effect()
 	}
 }
 
-auto& tiles(manager.getGroup(groupMap));
-auto& players(manager.getGroup(groupPlayers));
-
 void Game::update()
 {
 	manager.actualize();
@@ -132,11 +129,18 @@ void Game::render()
 	for(auto& p : players)
 		p->draw();
 
+	for(auto& c : collider)
+		c->draw();
+
+	for(auto& p : projectile)
+		p->draw();
+
 	SDL_RenderPresent(renderer);
 }
 
 void Game::clean()
 {
+	//manager.clearEntities();
 	SDL_DestroyWindow(window);
 	SDL_DestroyRenderer(renderer);
 	SDL_Quit();
@@ -147,5 +151,5 @@ void Game::AddTile(int id, int x, int y)
 {
 	auto& tile(manager.addEntity());
 	tile.addComponent<TileComponent>(x, y, 32, 32, id);
-	tile.addGroup(groupMap);
+	tile.addGroup(Game::groupMap);
 }

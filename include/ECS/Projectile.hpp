@@ -4,19 +4,20 @@
 #include "Components.hpp"
 #include "../Game.hpp"
 #include "../Camera.hpp"
+#include "../Vector.hpp"
 
 class ProjectileComponent : public Component
 {
 
 public:
 
-	ProjectileComponent(int rng, int sp) : _range(rng), _speed(sp)
-	{}
-	~ProjectileComponent();
+	ProjectileComponent(int rng, int sp, Vector vel) : _range(rng), _speed(sp), _velocity(vel) {}
+	~ProjectileComponent() {}
 
 	void init() override
 	{
 		_transform = &entity->getComponent<TransformComponent>();
+		_transform->velocity = _velocity;
 	}
 
 	void update() override
@@ -48,5 +49,6 @@ private:
 	int _speed = 0;
 	int _distance = 0;
 
+	Vector _velocity;
 
 };

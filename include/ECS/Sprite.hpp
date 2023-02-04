@@ -16,7 +16,7 @@ public:
 
 	SpriteComponent() = default;
 	SpriteComponent(SDL_Texture* texture) {_texture = texture; }
-	//SpriteComponent(std::string id) {_texture = Game::assets->GetTexture(id); }
+	SpriteComponent(std::string id) {_texture = Game::assets->GetTexture(id); }
 	SpriteComponent(const char* id) {_texture = Game::assets->GetTexture(id); }
 	//SpriteComponent(const char* path) {setText(path); }
 

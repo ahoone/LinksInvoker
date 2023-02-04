@@ -7,7 +7,9 @@
 #include <string>
 
 class ColliderComponent;
+
 class Camera;
+
 class AssetManager;
 
 class Game
@@ -58,6 +60,18 @@ public:
 
 	static const int CAMERA_WIDTH = 768; //512 //1024
 	static const int CAMERA_HEIGHT = 576; //384 //768
+
+	//***********************
+	//*** GROUPES ENTITÉS ***
+	//***********************
+
+	enum groupLabels : std::size_t
+	{
+		groupMap,
+		groupPlayers,
+		groupCollider,
+		groupProjectile
+	};
 
 private:
 	int _count;

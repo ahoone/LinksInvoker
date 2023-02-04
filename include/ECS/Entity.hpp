@@ -47,7 +47,6 @@ using GroupBitSet = std::bitset<maxGroups>;
 
 using ComponentArray = std::array<Component*, maxComponents>;
 
-//Sert de base à tous les Component
 class Component
 {
 
@@ -157,6 +156,7 @@ public:
 	std::vector<Entity*>& getGroup(Group mGroup);
 
 	Entity& addEntity();
+	void clearEntities();
 
 private:
 
@@ -208,6 +208,16 @@ inline Entity& Manager::addEntity()
 	std::unique_ptr<Entity> uPtr {e};
 	_entities.emplace_back(std::move(uPtr));
 	return *e;
+}
+
+inline void Manager::clearEntities()
+{
+	//std::cout << "Sur " << _entities.size() << " entités, il en reste ";
+	for(auto& e : _entities)
+		e->destroy();
+
+	actualize();
+	//std::cout << _entities.size() << "." << std::endl;
 }
 
 //Must be defined here, if no, class Manager is considered incomplete
