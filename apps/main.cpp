@@ -20,7 +20,7 @@ int main(int argc, char const *argv[])
 	//la caméra ou si on doit afficher par dessus un bandeau par
 	//dessus (entre l'espace laissé entre les defines de 
 	//SCREEN_<dir> et CAMERA_<dir>)
-	game->init("LinksInvoker", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, CAMERA_WIDTH, CAMERA_HEIGHT, false);
+	game->init("LinksInvoker", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, false);
 
 	while(game->running())
 	{

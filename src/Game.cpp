@@ -5,6 +5,7 @@
 #include "Vector.hpp"
 #include "Collision.hpp"
 #include "Camera.hpp"
+#include "AssetManager.hpp"
 
 //====================================
 //=== DÉCLARATION COMPOSANTES JEUX ===
@@ -12,13 +13,14 @@
 
 Map* map;
 
+Manager manager;
+
 SDL_Renderer* Game::renderer = nullptr;
 Camera* Game::camera = nullptr;
+AssetManager* Game::assets = new AssetManager(&manager);
 SDL_Event Game::event;
-
 std::vector<ColliderComponent*> Game::colliders;
 
-Manager manager;
 auto& player(manager.addEntity());
 
 enum groupLabels : std::size_t
@@ -35,7 +37,7 @@ Game::Game()
 Game::~Game()
 {}
 
-void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
+void Game::init(const char* title, int xpos, int ypos, bool fullscreen)
 {
 	Uint32 flags = 0;
 
@@ -52,7 +54,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 	{
 		std::cout << "Subsystem Initialized" << std::endl;
 
-		window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
+		window = SDL_CreateWindow(title, xpos, ypos, Game::CAMERA_WIDTH, Game::CAMERA_HEIGHT, flags);
 		if(!window)
 			std::cout << "SDL_CreateWindow Error" << std::endl;
 		else
@@ -73,12 +75,18 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		_running = true;
 		_count = 0;
 
+		//Load textures
+		assets->AddTexture("concrete", "../assets/concrete.bmp");
+		assets->AddTexture("dirt", "../assets/dirt.bmp");
+		assets->AddTexture("grass", "../assets/grass.bmp");
+		assets->AddTexture("player", "../assets/player.bmp");
+
 		//Load the default map
 		map = new Map();
 
 		//Init the player
-		player.addComponent<TransformComponent>(CAMERA_WIDTH/2, CAMERA_HEIGHT/2, 32, 32, 2);
-		player.addComponent<MultiSpriteComponent>("../assets/player.bmp");
+		player.addComponent<TransformComponent>(Game::CAMERA_WIDTH/2, Game::CAMERA_HEIGHT/2, 32, 32, 2);
+		player.addComponent<MultiSpriteComponent>("player");
 		player.addComponent<Keyboard>(SDLK_z, SDLK_s, SDLK_q, SDLK_d);
 		player.addComponent<ColliderComponent>("player");
 		player.addGroup(groupPlayers);

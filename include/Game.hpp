@@ -6,14 +6,9 @@
 #include <vector>
 #include <string>
 
-#define SCREEN_WIDTH 1024
-#define SCREEN_HEIGHT 768
-
-#define CAMERA_WIDTH 768 //512 //1024
-#define CAMERA_HEIGHT 576 //384 //768
-
 class ColliderComponent;
 class Camera;
+class AssetManager;
 
 class Game
 {
@@ -26,7 +21,7 @@ public:
 	//*** INITIALISATION ***
 	//**********************
 
-	void init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen);
+	void init(const char* title, int xpos, int ypos, bool fullscreen);
 	void initEntities();
 	void placeWall();
 	void placeGoal();
@@ -50,8 +45,19 @@ public:
 
 	static SDL_Renderer* renderer;
 	static Camera* camera;
+	static AssetManager* assets;
 	static SDL_Event event;
 	static std::vector<ColliderComponent*> colliders;
+
+	//********************************
+	//*** TAILLE FENÊTRE ET CAMÉRA ***
+	//********************************
+
+	static const int SCREEN_WIDTH = 32*36*2; //1024;
+	static const int SCREEN_HEIGHT = 32*36*2; //768;
+
+	static const int CAMERA_WIDTH = 768; //512 //1024
+	static const int CAMERA_HEIGHT = 576; //384 //768
 
 private:
 	int _count;

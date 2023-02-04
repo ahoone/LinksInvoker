@@ -6,15 +6,47 @@
 
 #include "Sprite.hpp"
 #include "Animation.hpp"
+#include "../Game.hpp"
+#include "../AssetManager.hpp"
 
 class MultiSpriteComponent : public SpriteComponent
 {
 
 public:
 
-	MultiSpriteComponent(const char* path)
+	// MultiSpriteComponent(const char* path)
+	// {
+	// 	setText(path);
+
+	// 	_animated = true;
+
+	// 	Animation idle = Animation(0, 2, 100);
+	// 	Animation walk = Animation(1, 2, 200);
+
+	// 	_animations.emplace("Idle", idle);
+	// 	_animations.emplace("Walk", walk);
+
+	// 	Play("Idle");
+	// }
+
+	MultiSpriteComponent(const char* id)
 	{
-		setText(path);
+		_texture = Game::assets->GetTexture(id);
+
+		_animated = true;
+
+		Animation idle = Animation(0, 2, 100);
+		Animation walk = Animation(1, 2, 200);
+
+		_animations.emplace("Idle", idle);
+		_animations.emplace("Walk", walk);
+
+		Play("Idle");
+	}
+
+	MultiSpriteComponent(SDL_Texture* texture)
+	{
+		_texture = texture;
 
 		_animated = true;
 

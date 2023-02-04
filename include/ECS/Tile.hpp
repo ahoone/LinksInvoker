@@ -7,9 +7,9 @@
 #include "Entity.hpp"
 #include "Transform.hpp"
 #include "Sprite.hpp"
+#include "../Game.hpp"
+#include "../AssetManager.hpp"
 
-//Composante de base de la map
-//On les mets dans un groupe particulier
 class TileComponent : public Component
 {
 
@@ -18,7 +18,7 @@ public:
 	SpriteComponent* sprite;
 	SDL_Rect tile;
 	int tileID;
-	std::string path;
+	SDL_Texture* texture;
 
 	TileComponent() = default;
 
@@ -33,13 +33,13 @@ public:
 		switch(tileID)
 		{
 		case 0:
-			path = "../assets/concrete.bmp";
+			texture = Game::assets->GetTexture("concrete");
 			break;
 		case 1:
-			path = "../assets/dirt.bmp";
+			texture = Game::assets->GetTexture("dirt");
 			break;
 		case 2:
-			path = "../assets/grass.bmp";
+			texture = Game::assets->GetTexture("grass");
 			break;
 		default:
 			break;
@@ -50,10 +50,8 @@ public:
 	{
 		entity->addComponent<TransformComponent>((float)tile.x, (float)tile.y, (float)tile.w, (float)tile.h, 1);
 		transform = &entity->getComponent<TransformComponent>();
-
-		const char* buff = path.c_str();
 		
-		entity->addComponent<SpriteComponent>(buff);
+		entity->addComponent<SpriteComponent>(texture);
 		sprite = &entity->getComponent<SpriteComponent>();
 	}
 

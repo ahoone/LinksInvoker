@@ -4,12 +4,12 @@
 
 Map::Map()
 {
-	LoadMap("../assets/defaultMap.txt", 36, 36);
+	LoadMap("../assets/defaultMap.txt", 36*2, 36*2);
 }
 
 Map::Map(std::string path)
 {
-	LoadMap(path, 36, 36);
+	LoadMap(path, 36*2, 36*2);
 }
 
 Map::~Map()

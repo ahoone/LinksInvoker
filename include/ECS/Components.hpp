@@ -7,3 +7,5 @@
 #include "Collider.hpp"
 #include "Tile.hpp"
 #include "MultiSprite.hpp"
+#include "Projectile.hpp"
+#include "Animation.hpp"

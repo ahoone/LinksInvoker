@@ -1,10 +1,13 @@
 #pragma once
 
+#include <string>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 
 #include "Entity.hpp"
 #include "../TextureManager.hpp"
+#include "../Game.hpp"
+#include "../AssetManager.hpp"
 
 class SpriteComponent : public Component
 {
@@ -12,7 +15,10 @@ class SpriteComponent : public Component
 public:
 
 	SpriteComponent() = default;
-	SpriteComponent(const char* path) {setText(path); }
+	SpriteComponent(SDL_Texture* texture) {_texture = texture; }
+	//SpriteComponent(std::string id) {_texture = Game::assets->GetTexture(id); }
+	SpriteComponent(const char* id) {_texture = Game::assets->GetTexture(id); }
+	//SpriteComponent(const char* path) {setText(path); }
 
 	~SpriteComponent() {SDL_DestroyTexture(_texture); }
 

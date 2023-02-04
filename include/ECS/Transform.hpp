@@ -3,9 +3,6 @@
 #include "Entity.hpp"
 #include "../Vector.hpp"
 
-//Composante de base de toute entité
-//Donne une position et une vitesse à
-//l'entité.
 class TransformComponent : public Component
 {
 
@@ -18,7 +15,7 @@ public:
 	int height = 32;
 	int scale = 1;
 
-	int speed = 3;
+	int speed = 8;
 
 	TransformComponent() {position.Zero(); }
 	TransformComponent(float x, float y) {setPos(x,y); }
@@ -75,9 +72,6 @@ public:
 	{
 		velocity.Zero();
 	}
-
-
-
 
 private:
 

@@ -1,0 +1,11 @@
+[ ] Faire les delete de tout ce qui a été alloué :
+	-> Component dans ECS/entity
+	-> Entity dans manager dans ECS/entity
+	-> commandes en-tête Game.cpp
+[ ] Faire des tests unaires pour vérifier que l'espace mémoire est bien vidé
+
+[ ] Modifier le mode de déplacement (combinaison de touches) en utilisant un automate/chaîne markov
+[ ] Ajoutez du zoom en rajoutant une variable scale à la caméra
+[ ] Changer le mode de collision (pas de AABB à postérieurie mais vérifier que le mouvement est possible)
+[ ] Upgrade la forme des hitbox (passer à des cercles centrés sur le milieu de la hit box actuelle)
+[ ] Ajouter des animations (tester)

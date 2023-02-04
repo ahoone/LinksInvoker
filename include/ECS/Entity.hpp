@@ -83,9 +83,8 @@ public:
 
 	Entity(Manager& mManager) : _manager(mManager) {}
 
-	//Les entity d'un même groupe sont
-	//réunies pour qu'on puisse itérer
-	//dessus et faire les updates...
+	~Entity() {}
+
 	bool hasGroup(Group mGroup) {return _groupBitSet[mGroup]; }
 	void addGroup(Group mGroup);
 	void delGroup(Group mGroup) {_groupBitSet[mGroup] = false; }
@@ -123,8 +122,6 @@ private:
 
 	Manager& _manager;
 
-	//Sert à stocker les données des
-	//components possédés par l'entity.
 	ComponentArray _componentArray;
 	ComponentBitSet _componentBitSet;
 	GroupBitSet _groupBitSet;
@@ -213,7 +210,7 @@ inline Entity& Manager::addEntity()
 	return *e;
 }
 
-//Must be defined here, if no, class Manager is considered incomple.
+//Must be defined here, if no, class Manager is considered incomplete
 inline void Entity::addGroup(Group mGroup)
 {
 	_groupBitSet[mGroup] = true;
